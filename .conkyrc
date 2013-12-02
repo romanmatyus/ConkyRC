@@ -1,16 +1,3 @@
-# conky configuration
-#
-# The list of variables has been removed from this file in favour
-# of keeping the documentation more maintainable.
-# Check http://conky.sf.net for an up-to-date-list.
-#
-# For ideas about how to modify conky, please see:
-# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
-#
-# For help with conky, please see:
-# http://crunchbanglinux.org/forums/topic/2047/conky-help/
-#
-# Enjoy! :)
 ##############################################
 # Settings
 ##############################################
@@ -54,13 +41,13 @@ Tomorrow Name-day$alignr${execpi 60 ~/.conky/name-day.sh 1}
 
 S Y S T E M    I N F O
 ${hr}
-Host:$alignr$nodename
-Uptime:$alignr$uptime
+Host$alignr$nodename
+Uptime$alignr$uptime
 ${execpi 60 ~/.conky/temperature.sh}
-RAM:$alignr$mem/$memmax
-Swap usage:$alignr$swap/$swapmax
-Disk usage:$alignr${fs_used /}/${fs_size /}
-Disk I/O:$alignr R:${diskio_read /dev/sda} W:${diskio_write /dev/sda}${execpi 2 ~/.conky/power.sh}${execpi 2 ~/.conky/removable-drives.sh}${execpi 2 ~/.conky/network-connection.sh}
+RAM$alignr$mem/$memmax
+Swap usage$alignr$swap/$swapmax
+Disk usage$alignr${fs_used /}/${fs_size /}
+Disk I/O$alignr R:${diskio_read /dev/sda} W:${diskio_write /dev/sda}${execpi 2 ~/.conky/power.sh}${execpi 2 ~/.conky/removable-drives.sh}${execpi 2 ~/.conky/network-connection.sh}
 
 T O P   C P U
 ${hr}
