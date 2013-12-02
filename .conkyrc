@@ -1,0 +1,88 @@
+# conky configuration
+#
+# The list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+#
+# For ideas about how to modify conky, please see:
+# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
+#
+# For help with conky, please see:
+# http://crunchbanglinux.org/forums/topic/2047/conky-help/
+#
+# Enjoy! :)
+##############################################
+# Settings
+##############################################
+background yes
+use_xft yes
+xftfont Ubuntu:size=9
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+update_interval_on_battery 1
+#own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 200
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color 656667
+default_shade_color 000000
+default_outline_color 828282
+alignment top_right
+gap_x 12
+gap_y 12
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale
+##############################################
+#  Output
+##############################################
+TEXT
+T O D A Y
+${hr}
+${time %d.%m.%Y}$alignr${time %H:%M:%S}
+Today Name-day$alignr${execpi 60 ~/.conky/name-day.sh}
+Tomorrow Name-day$alignr${execpi 60 ~/.conky/name-day.sh 1}
+
+S Y S T E M    I N F O
+${hr}
+Host:$alignr$nodename
+Uptime:$alignr$uptime
+${execpi 60 ~/.conky/temperature.sh}
+RAM:$alignr$mem/$memmax
+Swap usage:$alignr$swap/$swapmax
+Disk usage:$alignr${fs_used /}/${fs_size /}
+Disk I/O:$alignr R:${diskio_read /dev/sda} W:${diskio_write /dev/sda}${execpi 2 ~/.conky/power.sh}${execpi 2 ~/.conky/removable-drives.sh}${execpi 2 ~/.conky/network-connection.sh}
+
+T O P   C P U
+${hr}
+${top name 1}$alignr${top cpu 1}%
+${top name 2}$alignr${top cpu 2}%
+${top name 3}$alignr${top cpu 3}%
+${font Ubuntu:size=9,weight:bold}Total:$alignr${cpu cpu0}%${font}
+
+S H O R T C U T    K E Y S
+${hr}
+Alt+F2$alignr Run Dialog
+Alt+F3$alignr Alt Menu
+Super+Space$alignr Main Menu
+Super+Tab$alignr Client Menu
+Super+T$alignr Terminal
+Super+C$alignr Calculator
+Super+E$alignr File Manager
+Super+V$alignr VLC
+Ctrl+Alt+Del$alignr Task Manager
+Super+W$alignr Web Browser
+Super+F$alignr Filezilla
+Super+M$alignr Icedove
+Super+L$alignr Lock Screen
+Super+X$alignr Logout
+PrtSc$alignr Screenshot
